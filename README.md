@@ -46,7 +46,7 @@ cd v0_ips_touch_display/
 ./mipi-dbi-cmd/mipi-dbi-cmd /lib/firmware/panel-mipi-dbi-spi.bin panel-mipi-dbi-spi.txt
 ```
 
-Now you will have to write a DTS overlay for your SBC. This is the hard part. Take inspiration from one of the existing overlays, then find out how the peripheral system of your board works and how to address the bus and gpios. Test your overlay with:
+Now you will have to procure a DTS overlay for your SBC. If you're lucky you'll find your SBC in the list of known working SBCs and you can just use the existing overlay. If your board hasn't been tested yet you'll have to write your own overlay. This is the hard part. Take inspiration from one of the existing overlays, then find out how the peripheral system of your board works and how to address the bus and gpios. Test your overlay with:
 
 ```
 armbian-add-overlay <your overlay>
@@ -70,7 +70,7 @@ If your framebuffer device is not `/dev/fb1`, change the file contents as necess
 
 Now is the time to install the whole Klipper stack, including KlipperScreen. It should just work™️, including touch control and DPMS.
 
-### Instructions for tested SBCs
+### Known working SBCs
 #### Orange Pi PC
 Build the image:
 ```
@@ -78,11 +78,9 @@ Build the image:
 ./compile.sh BOARD=orangepipc BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
 ```
 
+#### Orange Pi Zero 3
 
-
-* Orange Pi Zero 3
-
-* Bigtreetech Pi V1.2
+#### Bigtreetech Pi V1.2
 Build the image:
 ```
 ./compile.sh BOARD=bigtreetech-cb1 BRANCH=edge kernel-config
