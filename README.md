@@ -64,7 +64,7 @@ Write the image to your SD card, then boot the system. After the initial setup, 
 ```
 git clone --recurse-submodules https://github.com/KungfuPancake/v0_ips_touch_display.git
 cd v0_ips_touch_display/
-./mipi-dbi-cmd/mipi-dbi-cmd /lib/firmware/panel-mipi-dbi-spi.bin panel-mipi-dbi-spi.txt
+./panel-mipi-dbi/mipi-dbi-cmd /lib/firmware/panel-mipi-dbi-spi.bin panel-mipi-dbi-spi.txt
 ```
 Please be aware that this firmware file contains a difference to most ILI9488 init sequences you'll find online. -VCOM has to be set to the correct value, otherwise you'll get a glow effect and eventually a display burnout. The correct values are: `command 0xC5 0x00 0x4D 0x80`. If you want to write your own init sequence or use some other preexisting one, remember to add those values!
 
