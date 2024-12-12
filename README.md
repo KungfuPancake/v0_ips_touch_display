@@ -29,17 +29,20 @@ TOUCHSCREEN_EDT_FT5X06=m
 BACKLIGHT_GPIO=m
 BACKLIGHT_PWM=m
 ```
-Follow the instructions for building the OS image for your SBC or deduct the necessary commands if your SBC is not listed.
+Then build the image. Replace the BOARD value with your SBC, e.g. `orangepipc` if you have an Orange Pi PC.
+```
+./compile.sh BOARD=<your sbc> BRANCH=edge kernel-config
+./compile.sh BOARD=<your sbc> BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
+```
 
+### Instructions for tested SBCs
 #### Orange Pi PC
-On the build machine:
+Build the image:
 ```
 ./compile.sh BOARD=orangepipc BRANCH=edge kernel-config
 ./compile.sh BOARD=orangepipc BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
 ```
-Write the image to a SD card (or to another boot media, e.g. SSD or eMMC) and boot the system. Once you have completed the initial setup,
-install the DTS overlay and the firmware file.
-On the SBC:
+
 ```
 git clone https://github.com/KungfuPancake/v0_ips_touch_display.git
 git clone https://github.com/notro/panel-mipi-dbi.git
@@ -52,7 +55,11 @@ reboot
 * Orange Pi Zero 3
 
 * Bigtreetech Pi V1.2
-
+Build the image:
+```
+./compile.sh BOARD=bigtreetech-cb1 BRANCH=edge kernel-config
+./compile.sh BOARD=bigtreetech-cb1 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
+```
 
 
 
