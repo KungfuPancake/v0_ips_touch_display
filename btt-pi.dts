@@ -1,0 +1,116 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+        compatible = "allwinner,sun50i-h616";
+
+        fragment@0 {
+                target-path = "/aliases";
+                __overlay__ {
+			spi0 = "/soc/spi@5010000";
+                        spi1 = "/soc/spi@5011000";
+			i2c4 = "/soc/i2c@5003000";
+			i2c2 = "/soc/i2c@5002800";
+			pio = "/soc/pinctrl@300b000";
+                };
+        };
+
+	fragment@1 {
+		target = <&spi1>;
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+
+        fragment@2 {
+                target = <&spi0>;
+                __overlay__ {
+                        #address-cells = <1>;
+                        #size-cells = <0>;
+                        status = "okay";
+
+                        panel: panel@0 {
+                                compatible = "panel-mipi-dbi-spi";
+                                reg = <0>;
+                                spi-max-frequency = <48000000>;
+
+                                dc-gpios = <&pio 2 12 0>;
+                                reset-gpios = <&pio 2 14 0>;
+                                write-only;
+
+                                format = "b6x2g6x2r6x2";
+
+                                backlight = <&backlight_gpio>;
+
+                                width-mm = <73>;
+                                height-mm = <49>;
+
+                                panel-timing {
+                                        hactive = <480>;
+                                        vactive = <320>;
+                                        hback-porch = <0>;
+                                        vback-porch = <0>;
+                                        clock-frequency = <0>;
+                                        hfront-porch = <0>;
+                                        hsync-len = <0>;
+                                        vfront-porch = <0>;
+                                        vsync-len = <0>;
+                                };
+                        };
+                };
+        };
+
+	fragment@3 {
+		target-path = "/";
+		__overlay__ {
+			backlight_gpio: backlight_gpio {
+				compatible = "gpio-backlight";
+				gpios = <&pio 2 11 0>;
+				default-on;
+			};
+		};
+	};
+
+	fragment@4 {
+		target = <&i2c4>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c4_ph_pins>;
+
+			touch@38 {
+				compatible = "focaltech,ft6236";
+				status = "okay";
+				reg = <0x38>;
+				reset-gpios = <&pio 2 13 1>;
+				interrupt-parent = <&pio>;
+				interrupts = <2 10 2>;
+				
+				touchscreen-size-x = <320>;
+				touchscreen-size-y = <480>;
+			};
+		};
+	};
+
+	fragment@5 {
+		target = <&pio>;
+		__overlay__ {
+			i2c2_ph_pins: i2c2_ph_pins {
+				pins = "PH2", "PH3";
+				function = "i2c2";
+			};
+		};
+	};
+
+        fragment@6 {
+                target = <&pio>;
+                __overlay__ {
+                        i2c4_ph_pins: i2c4_ph_pins {
+                                pins = "PH6", "PH7";
+                                function = "i2c4";
+                        };
+                };
+        };
+};
