@@ -1,0 +1,3 @@
+[submodule "panel-mipi-dbi"]
+	path = panel-mipi-dbi
+	url = https://github.com/notro/panel-mipi-dbi.git
