@@ -93,7 +93,53 @@ If your framebuffer device is not `/dev/fb1`, change the file contents as necess
 Now is the time to install the whole Klipper stack, including KlipperScreen. It should just work™️, including touch control and DPMS.
 
 ### Known working SBCs
+#### Raspberry Pi
+| Pin   |    |    | Pin   |
+|-------|----|----|-------|
+|       | 1  | 2  |       |
+| SDA   | 3  | 4  |       |
+| SCL   | 5  | 6  |       |
+| T_RST | 7  | 8  |       |
+|       | 9  | 10 |       |
+|       | 11 | 12 | LED   |
+|       | 13 | 14 |       |
+|       | 15 | 16 | INT   |
+| 3V    | 17 | 18 | DC    |
+| MOSI  | 19 | 20 |       |
+|       | 21 | 22 | L_RST |
+| SCK   | 23 | 24 | CS    |
+| GND   | 25 | 26 |       |
+|       | 27 | 28 |       |
+|       | 29 | 30 |       |
+|       | 31 | 32 |       |
+|       | 33 | 34 |       |
+|       | 35 | 36 |       |
+|       | 37 | 38 |       |
+|       | 39 | 40 |       |
+
 #### Orange Pi PC
+| Pin   |    |    | Pin   |
+|-------|----|----|-------|
+|       | 1  | 2  |       |
+| SDA   | 3  | 4  |       |
+| SCL   | 5  | 6  |       |
+| LED   | 7  | 8  | INT   |
+|       | 9  | 10 |       |
+| T_RST | 11 | 12 |       |
+|       | 13 | 14 |       |
+|       | 15 | 16 |       |
+| 3V    | 17 | 18 | DC    |
+| MOSI  | 19 | 20 |       |
+|       | 21 | 22 | L_RST |
+| SCK   | 23 | 24 | CS    |
+| GND   | 25 | 26 |       |
+|       | 27 | 28 |       |
+|       | 29 | 30 |       |
+|       | 31 | 32 |       |
+|       | 33 | 34 |       |
+|       | 35 | 36 |       |
+|       | 37 | 38 |       |
+|       | 39 | 40 |       |
 Build the image:
 ```
 ./compile.sh BOARD=orangepipc BRANCH=edge kernel-config
@@ -103,10 +149,35 @@ Build the image:
 #### Orange Pi Zero 3
 
 #### Bigtreetech Pi V1.2
+| Pin   |    |    | Pin   |
+|-------|----|----|-------|
+| 3V    | 1  | 2  |       |
+| CS    | 3  | 4  |       |
+| SCK   | 5  | 6  |       |
+|       | 7  | 8  |       |
+| GND   | 9  | 10 |       |
+| L_RST | 11 | 12 | T_RST |
+| DC    | 13 | 14 |       |
+| INT   | 15 | 16 | LED   |
+|       | 17 | 18 |       |
+| SDA   | 19 | 20 |       |
+|       | 21 | 22 |       |
+| SCL   | 23 | 24 |       |
+|       | 25 | 26 |       |
+| MOSI  | 27 | 28 |       |
+|       | 29 | 30 |       |
+|       | 31 | 32 |       |
+|       | 33 | 34 |       |
+|       | 35 | 36 |       |
+|       | 37 | 38 |       |
+|       | 39 | 40 |       |
+
 Build the image:
 ```
 ./compile.sh BOARD=bigtreetech-cb1 BRANCH=edge kernel-config
 ./compile.sh BOARD=bigtreetech-cb1 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
+
+
 ```
 
 
