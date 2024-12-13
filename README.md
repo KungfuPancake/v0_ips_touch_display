@@ -39,7 +39,10 @@ Once Linux 6.11 has been adopted by Raspberry Pi OS/Armbian a big chunk of that 
 The display uses two parts for mounting: a skirt adapter and the display frame.
 For the skirt adapter we're currently using this one [Voron0.2 2.8 Waveshare Display by hartk1213](https://mods.vorondesign.com/details/ig1ygdPg4TS0C5XY6HTw). Print this in the same material and color as your other skirt elements.
 
-The display frame is a bit tricky. The display does not have any mounting points and the project started off with the backside being attached by double sided adhesive tape, but that turned out to be quite unreliable and destructive in case the display had to be removed. We have sinced moved to a clip in design that makes sure that the display always stays in place and can be removed again. To make sure that the display clips in easily but is then held securely, you'll have to get the dimensions just right. Even if you dialed in your ABS shrinkage correctly, multiple attempts might be necessary. Start with a 101% scaling and work your way down. In case you have to remove the display from the frame you might have to cut the border with pliers. Be extremely careful not to crack the glass! At least one display died in the making of this frame.
+The display frame is a bit tricky. The display does not have any mounting points and the project started off with the backside being attached by double sided adhesive tape, but that turned out to be quite unreliable and destructive in case the display had to be removed. 
+
+We have sinced moved to a clip in design that makes sure that the display always stays in place and can be removed again. To make sure that the display clips in easily but is then held securely, you'll have to get the dimensions just right. Even if you dialed in your ABS shrinkage correctly, multiple attempts might be necessary. Start with a 101% scaling and work your way down. In case you have to remove the display from the frame you might have to cut the border with pliers. Be extremely careful not to crack the glass! At least one display died in the making of this frame.
+
 Remember to turn on build plate supports when printing, as the PCB is recessed in the backside of the frame. Built-in supports might come in the future.
 
 ### PCB
