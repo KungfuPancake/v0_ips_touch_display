@@ -147,6 +147,28 @@ Build the image:
 ```
 
 #### Orange Pi Zero 3
+| Pin   |    |    | Pin   |
+|-------|----|----|-------|
+|       | 1  | 2  |       |
+| SDA   | 3  | 4  |       |
+| SCL   | 5  | 6  |       |
+|       | 7  | 8  | T_RST |
+|       | 9  | 10 | LED   |
+|       | 11 | 12 |       |
+|       | 13 | 14 |       |
+|       | 15 | 16 |       |
+| 3V    | 17 | 18 | INT   |
+| MOSI  | 19 | 20 |       |
+|       | 21 | 22 | DC    |
+| SCK   | 23 | 24 | CS    |
+| GND   | 25 | 26 | L_RST |
+
+```
+./compile.sh BOARD=orangepizero3 BRANCH=edge kernel-config
+./compile.sh BOARD=orangepizero3 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
+```
+
+There currently is a conflict between I²C3 and SPI1. Solution WIP.
 
 #### Bigtreetech Pi V1.2
 | Pin   |    |    | Pin   |
