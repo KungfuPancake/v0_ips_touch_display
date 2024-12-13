@@ -33,7 +33,7 @@
                         panel: panel@1 {
                                 compatible = "panel-mipi-dbi-spi";
                                 reg = <1>;
-                                spi-max-frequency = <64000000>;
+                                spi-max-frequency = <56000000>;
 
                                 dc-gpios = <&pio 2 7 0>;
                                 reset-gpios = <&pio 2 10 0>;
@@ -76,11 +76,23 @@
 	};
 
 	fragment@4 {
+                target = <&pio>;
+                __overlay__ {
+                        i2c3_ph_pins: i2c3-ph-pins {
+                                pins = "PH4", "PH5";
+                                function = "i2c3";
+                        };
+                };
+        };
+
+	fragment@5 {
 		target = <&i2c3>;
 		__overlay__ {
 			#address-cells = <1>;
 			#size-cells = <0>;
 			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c3_ph_pins>;
 
 			touch@38 {
 				compatible = "focaltech,ft6236";
