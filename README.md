@@ -176,8 +176,6 @@ armbian-add-overlay orangepi-pc.dts
 armbian-add-overlay orangepi-zero3.dts
 ```
 
-There currently is a conflict between I²C3 and SPI1. Solution WIP.
-
 #### Bigtreetech Pi V1.2
 | Pin   |    |    | Pin   |
 |-------|----|----|-------|
