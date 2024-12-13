@@ -81,8 +81,6 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			status = "okay";
-			pinctrl-names = "default";
-			pinctrl-0 = <&i2c4_ph_pins>;
 
 			touch@38 {
 				compatible = "focaltech,ft6236";
