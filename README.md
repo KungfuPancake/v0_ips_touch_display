@@ -66,9 +66,6 @@ If your SBC is not listed here, try to find some documentation or schematics for
 * 1x GPIO with IRQ capability
 * 4x GPIO outputs, optionally with one PWM capable pin
 
-### Raspberry Pi OS
-TBD
-
 ### Armbian
 Armbian has an easy to set up build environment based on Docker. All operations can be done via a provided shell script.
 
@@ -122,31 +119,7 @@ If your framebuffer device is not `/dev/fb1`, change the file contents as necess
 
 Now is the time to install the whole Klipper stack, including KlipperScreen. It should just work™️, including touch control and DPMS.
 
-### Known working SBCs
-#### Raspberry Pi
-| Pin   |    |    | Pin   |
-|-------|----|----|-------|
-|       | 1  | 2  |       |
-| SDA   | 3  | 4  |       |
-| SCL   | 5  | 6  |       |
-| T_RST | 7  | 8  |       |
-|       | 9  | 10 |       |
-|       | 11 | 12 | LED   |
-|       | 13 | 14 |       |
-|       | 15 | 16 | INT   |
-| 3V    | 17 | 18 | DC    |
-| MOSI  | 19 | 20 |       |
-|       | 21 | 22 | L_RST |
-| SCK   | 23 | 24 | CS    |
-| GND   | 25 | 26 |       |
-|       | 27 | 28 |       |
-|       | 29 | 30 |       |
-|       | 31 | 32 |       |
-|       | 33 | 34 |       |
-|       | 35 | 36 |       |
-|       | 37 | 38 |       |
-|       | 39 | 40 |       |
-
+### Known working SBCs with Armbian support
 #### Orange Pi PC
 | Pin   |    |    | Pin   |
 |-------|----|----|-------|
@@ -237,5 +210,31 @@ armbian-add-overlay btt-pi.dts
 ```
 The display including touch works on the BTT Pi, but the Xserver does not start correctly most of the time, resulting in a garbled screen. More work is needed here.
 
+### Raspberry Pi OS
+TBD
 
+### Known working boards with Raspberry Pi OS support
+#### Raspberry Pi Zero W
+| Pin   |    |    | Pin   |
+|-------|----|----|-------|
+|       | 1  | 2  |       |
+| SDA   | 3  | 4  |       |
+| SCL   | 5  | 6  |       |
+| T_RST | 7  | 8  |       |
+|       | 9  | 10 |       |
+|       | 11 | 12 | LED   |
+|       | 13 | 14 |       |
+|       | 15 | 16 | INT   |
+| 3V    | 17 | 18 | DC    |
+| MOSI  | 19 | 20 |       |
+|       | 21 | 22 | L_RST |
+| SCK   | 23 | 24 | CS    |
+| GND   | 25 | 26 |       |
+|       | 27 | 28 |       |
+|       | 29 | 30 |       |
+|       | 31 | 32 |       |
+|       | 33 | 34 |       |
+|       | 35 | 36 |       |
+|       | 37 | 38 |       |
+|       | 39 | 40 |       |
 
