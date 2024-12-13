@@ -142,10 +142,13 @@ Now is the time to install the whole Klipper stack, including KlipperScreen. It 
 |       | 35 | 36 |       |
 |       | 37 | 38 |       |
 |       | 39 | 40 |       |
-Build the image:
+
 ```
 ./compile.sh BOARD=orangepipc BRANCH=edge kernel-config
 ./compile.sh BOARD=orangepipc BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
+```
+```
+armbian-add-overlay orangepi-pc.dts
 ```
 
 #### Orange Pi Zero 3
@@ -168,6 +171,9 @@ Build the image:
 ```
 ./compile.sh BOARD=orangepizero3 BRANCH=edge kernel-config
 ./compile.sh BOARD=orangepizero3 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
+```
+```
+armbian-add-overlay orangepi-zero3.dts
 ```
 
 There currently is a conflict between I²C3 and SPI1. Solution WIP.
@@ -196,10 +202,12 @@ There currently is a conflict between I²C3 and SPI1. Solution WIP.
 |       | 37 | 38 |       |
 |       | 39 | 40 |       |
 
-Build the image:
 ```
 ./compile.sh BOARD=bigtreetech-cb1 BRANCH=edge kernel-config
 ./compile.sh BOARD=bigtreetech-cb1 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
+```
+```
+armbian-add-overlay btt-pi.dts
 ```
 
 
