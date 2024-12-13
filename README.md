@@ -213,7 +213,7 @@ The display including touch works on the BTT Pi, but the Xserver does not start 
 ### Raspberry Pi OS
 TBD
 
-### Known working boards with Raspberry Pi OS support
+### Known working SBCs with Raspberry Pi OS support
 #### Raspberry Pi Zero W
 | Pin   |    |    | Pin   |
 |-------|----|----|-------|
