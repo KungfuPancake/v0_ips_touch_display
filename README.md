@@ -32,10 +32,24 @@ Once Linux 6.11 has been adopted by Raspberry Pi OS/Armbian a big chunk of that 
 
 ## Instructions
 ### Printed parts
-TBD
+The display uses two parts for mounting: a skirt adapter and the display frame.
+For the skirt adapter we're currently using this one [Voron0.2 2.8 Waveshare Display by hartk1213](https://mods.vorondesign.com/details/ig1ygdPg4TS0C5XY6HTw). Print this in the same material and color as your other skirt elements.
+
+The display frame is a bit tricky. The display does not have any mounting points and the project started off with the backside being attached by double sided adhesive tape, but that turned out to be quite unreliable and destructive in case the display had to be removed. We have sinced moved to a clip in design that makes sure that the display always stays in place and can be removed again. To make sure that the display clips in easily but is then held securely, you'll have to get the dimensions just right. Even if you dialed in your ABS shrinkage correctly, multiple attempts might be necessary. Start with a 101% scaling and work your way down. In case you have to remove the display from the frame you might have to cut the border with pliers. Be extremely careful not to crack the glass! At least one display died in the making of this frame.
+Remember to turn on build plate supports when printing, as the PCB is recessed in the backside of the frame. Built-in supports might come in the future.
 
 ### PCB
-TBD
+![pcb](https://github.com/user-attachments/assets/d58cfda2-b134-403d-af5a-29b13cfef3d7)
+Since the Display just exposed two bare flat flex connectors, an adapter PCB is needed. The gerber files in this repository can be used to order PCBs at e.g. [JLCPCB](https://jlcpcb.com/). Most settings don't matter, but set the PCB thickness to 0.8mm as the cutout in the printed frame has that exact depth. Solder on the parts from the BOM, starting with the FPC connectors and finish with the pin header. You should test the display with the PCB attached before mounting everything. Just make sure that the PCB does not contact the bare metal shield on the back of the display. A piece of kapton tape works great.
+
+### Wiring harness
+Build the wiring harness by attaching a 6x2 Dupont housing with female crimps on the display side and a connector suitable for your SBC (likely with Dupont, too) on the other side. Either use the pinouts for the tested boards or work out your own by using the schematics provided by your board manufacturer and whatever you can get working on it. Keep the wiring harness as short as possible and the length for the SPI lines as equal as possible. We're gonna send serial data with up to 64MHz through it.
+
+### Assembly
+![IMG_4101](https://github.com/user-attachments/assets/004e1b84-8833-459d-809d-be9d2162ac60)
+
+Start by melting in the heat set inserts. Put a screw into every insert and remove any leftover material as it may interfer with the display. Then clip in the display while carefully guiding the flat flex through the cutout. Lastly, attach the flat flex to the FPC connectors, then screw down the PCB into the mounting location.
+Test the display again and if everything works, attach the display frame to the skirt adapter with this M3x4 SHCS screws. The two screws on the top side will barely reach the insert, but depending on tolerances, using M3x6 might interfer with the display body. Use your best judgement.
 
 ### SBC
 Despite claiming to follow the Raspberry Pi GPIO header scheme, most non-RPI SBCs have some differences on the pinout and the peripherals.
