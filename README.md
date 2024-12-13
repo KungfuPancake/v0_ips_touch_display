@@ -67,7 +67,7 @@ If your SBC is not listed here, try to find some documentation or schematics for
 * 4x GPIO outputs, optionally with one PWM capable pin
 
 ### Armbian
-Armbian has an easy to set up build environment based on Docker. All operations can be done via a provided shell script.
+Armbian has an easy way to set up a build environment based on Docker. All operations can be done via a provided shell script.
 
 `git clone https://github.com/armbian/build armbian`
 
