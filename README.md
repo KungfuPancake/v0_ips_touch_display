@@ -31,7 +31,13 @@ Once Linux 6.11 has been adopted by Raspberry Pi OS/Armbian a big chunk of that 
 * whatever you need to connect the wires to your SBC, plus heatshrink/sleeving/whatever you feel like doing. go wild!
 
 ## Instructions
-### Hardware
+### Printed parts
+TBD
+
+### PCB
+TBD
+
+### SBC
 Despite claiming to follow the Raspberry Pi GPIO header scheme, most non-RPI SBCs have some differences on the pinout and the peripherals.
 If your SBC is not listed here, try to find some documentation or schematics for your board. You will need:
 * 1x SPI with one CS/CE line
@@ -40,6 +46,7 @@ If your SBC is not listed here, try to find some documentation or schematics for
 * 4x GPIO outputs, optionally with one PWM capable pin
 
 ### Raspberry Pi OS
+TBD
 
 ### Armbian
 Armbian has an easy to set up build environment based on Docker. All operations can be done via a provided shell script.
