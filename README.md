@@ -6,7 +6,7 @@
 * build a custom Linux kernel or a complete OS image
 * possibly write and then apply a DTS overlay to make the kernel aware of the display
 
-In return you get a very high quality 3.5" display on your V0 that has just the right size to not look out of place for a very low price.
+In return you get a very high quality 3.5" display on your V0 that has just the right size to not look out of place for a very low price. No cables sticking out the side, no DSI connector needed, compatible with pretty much every SBC that has a RPI style pin header.
 
 Most of the hoops you'll have to jump through stem from the display controller (ILI9488). It is MIPI-DBI compatible, but contrary to its predecessors it does not support 16 bit color modes when using the SPI interface.
 This means more data has to be pushed into the display (three transactions per pixel instead of two) and the color format has to be set correctly. The first problem is solved by increasing the SPI speed, but support for non 16 bit color formats have only recently been added to the MIPI-DBI kernel module. This means you will currently have to roll your own Kernel on at least Armbian and Raspberry Pi OS.
