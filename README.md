@@ -235,6 +235,7 @@ armbian-add-overlay orangepi-zero3.dts
 ```
 armbian-add-overlay btt-pi.dts
 ```
+The display including touch works on the BTT Pi, but the Xserver does not start correctly most of the time, resulting in a garbled screen. More work is needed here.
 
 
 
