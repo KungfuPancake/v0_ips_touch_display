@@ -211,7 +211,25 @@ armbian-add-overlay btt-pi.dts
 The display including touch works on the BTT Pi, but the Xserver does not start correctly most of the time, resulting in a garbled screen. More work is needed here.
 
 ### Raspberry Pi OS
-TBD
+*More instructions and support for more Raspberry Pi boards will follow - in the meantime, you might have to get creative*
+
+Build your own kernel using the following documentation: [Raspberry Pi - The Linux kernel](https://www.raspberrypi.com/documentation/computers/linux_kernel.html)
+Remember to use a branch with a recent enough version i.e. at least `rpi-6.11.y `. Then boot your Pi with the new kernel.
+You're now ready to install the display.
+
+```
+git clone --recurse-submodules https://github.com/KungfuPancake/v0_ips_touch_display.git
+cd v0_ips_touch_display/
+./panel-mipi-dbi/mipi-dbi-cmd /lib/firmware/panel-mipi-dbi-spi.bin panel-mipi-dbi-spi.txt
+```
+
+Please be aware that this firmware file contains a difference to most ILI9488 init sequences you'll find online. -VCOM has to be set to the correct value, otherwise you'll get a glow effect and eventually a display burnout. The correct values are: `command 0xC5 0x00 0x4D 0x80`. If you want to write your own init sequence or use some other preexisting one, remember to add those values!
+
+Compile the overlay:
+```
+dtc -@ -Hepapr -I dts -O dtb -o rpi-ili9488-v0.dtbo rpi.dts
+```
+Then place the binary file into the overlay folder in `/boot` and add a corresponding line in `config.txt` and reboot.
 
 ### Known working SBCs with Raspberry Pi OS support
 #### Raspberry Pi Zero W
