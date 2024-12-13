@@ -1,4 +1,5 @@
 # A better Voron V0 KlipperScreen Display
+![Mounted Display on a Voron V0](https://github.com/user-attachments/assets/242b8273-a739-4a9a-9520-3f2ceb1d92aa)
 *Warning:* This is (currently) not a straightforward mod. You will need to:
 * have PCBs made and solder SMD components including a 40 pin connector with a 0.5mm pin pitch
 * build a wiring harness
@@ -52,6 +53,7 @@ CONFIG_TOUCHSCREEN_EDT_FT5X06=m
 CONFIG_BACKLIGHT_GPIO=m
 CONFIG_BACKLIGHT_PWM=m
 ```
+
 You don't need any modules to enable a graphical console, but you'll need a framebuffer device for your display, since X currently does not play well with the modesetting driver for mipi-dpi-spi. `/dev/fb0` usually gets assigned to the HDMI port of your SBC, so watch out for `/dev/fb1`. `dmesg | grep spi` helps to find out if the module was loaded correctly and if a framebuffer was assigned.
 
 Then build the image. Replace the BOARD value with your SBC, e.g. `orangepipc` if you have an Orange Pi PC.
@@ -198,8 +200,6 @@ Build the image:
 ```
 ./compile.sh BOARD=bigtreetech-cb1 BRANCH=edge kernel-config
 ./compile.sh BOARD=bigtreetech-cb1 BRANCH=edge BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no RELEASE=bookworm
-
-
 ```
 
 
