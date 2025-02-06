@@ -210,13 +210,13 @@ armbian-add-overlay btt-pi.dts
 ```
 The display including touch works on the BTT Pi, but the Xserver does not start correctly most of the time, resulting in a garbled screen. More work is needed here.
 
-
 ### Raspberry Pi OS
-
 *More instructions and support for more Raspberry Pi boards will follow - in the meantime, you might have to get creative*
 
 Build your own kernel using the following documentation: [Raspberry Pi - The Linux kernel](https://www.raspberrypi.com/documentation/computers/linux_kernel.html)
+
 Remember to use a branch with a recent enough version i.e. at least `rpi-6.11.y `. Then boot your Pi with the new kernel.
+
 You're now ready to install the display.
 
 ```
