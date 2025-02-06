@@ -268,7 +268,7 @@ dtoverlay=rpi-ili9488-v0
 Reboot and your LCD should come alive.
 
 ### Known working SBCs with Raspberry Pi OS support
-#### Raspberry Pi Zero W
+#### Raspberry Pi Zero W, Raspberry Pi 4
 | Pin   |    |    | Pin   |
 |-------|----|----|-------|
 |       | 1  | 2  |       |
