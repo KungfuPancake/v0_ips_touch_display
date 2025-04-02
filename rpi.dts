@@ -68,7 +68,7 @@
 			#size-cells = <0>;
 			status = "okay";
 
-			touch@38 {
+			touchpanel: touch@38 {
 				compatible = "focaltech,ft6236";
 				status = "okay";
 				reg = <0x38>;
@@ -81,4 +81,13 @@
 			};
 		};
 	};
+
+
+        __overrides__ {
+                touch-sizex = <&touchpanel>,"touchscreen-size-x?";
+                touch-sizey = <&touchpanel>,"touchscreen-size-y?";
+                touch-invx  = <&touchpanel>,"touchscreen-inverted-x?";
+                touch-invy  = <&touchpanel>,"touchscreen-inverted-y?";
+                touch-swapxy = <&touchpanel>,"touchscreen-swapped-x-y?";
+        };
 };
